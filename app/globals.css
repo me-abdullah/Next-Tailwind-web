@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d20f2d;
+  border-radius: 5px;
+}
+
+.slider-overlay {
+  @apply absolute flex items-center justify-center flex-col inset-0;
+}
+
+::selection {
+  background: #d20f2d;
+  color: #fff;
+}
+
+.customfont{
+  font-family: "Poppins", sans-serif;
+}
+
+.large_circle,
+.small_circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #d20f2d;
+  position: fixed;
+  pointer-events: none;
+  transition: transform 0.1s;
+}
+.small_circle {
+  width: 7px;
+  height: 7px;
+  background-color: #000;
+}
+
+
+
+.container {
+  position: relative;
+}
+.container:hover {
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #d20f2d;
+  color: #fff;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: 0.5s ease;
+  z-index: -1;
+}
+
+.container:hover .overlay {
+  height: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.plus-sign {
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+.custom_prod h2{
+  color: #d20f2d;
+}
+
+.icon-bounce {
+  animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.scale-up {
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+.glide__arrow {
+  @apply absolute block z-[2] opacity-100 -translate-y-2/4 top-2/4;
+}
+
+
+
+
+/* Add these styles to your CSS file */
+@keyframes scrollX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scrollXReverse {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: scrollX 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: scrollXReverse 30s linear infinite;
+}
+
+/* styles/globals.css */
+.qt-background {
+  background: url('/q1.jpg') no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+}
+
+.qt-background p {
+  font-size: 35px;
+  font-weight: 300;
+  line-height: 44px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.qt-background span {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+
+.testimonial-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testimonial-section:after {
+  content: "";
+  position: absolute;
+  width: 900px;
+  height: 550px;
+  background: #f2f2f6;
+  right: 0;
+  bottom: 0;
+  opacity: 0.8;
+  z-index: -10;
+}
+.testimonial-section .testimonial-container {
+  width: 1280px;
+  min-width: 1280px;
+  height: 600px;
+  position: relative;
+}
+.testimonial-section .testimonial-container .arrows {
+  position: absolute;
+  display: flex;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  top: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
+.testimonial-section .testimonial-container .arrows:hover {
+  box-shadow: 0px 0px 30px rgba(0, 0, 80, 0.05);
+}
+.testimonial-section .testimonial-container .arrows.right {
+  right: 0;
+}
+.testimonial-section .testimonial-container .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+.testimonial-section .testimonial-container .inner .t-image {
+  width: 500px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testimonial-section .testimonial-container .inner .t-image:after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #3f56da;
+  left: 140px;
+  top: 0;
+  border-radius: 100%;
+  z-index: -9;
+}
+.testimonial-section .testimonial-container .inner .t-image ul {
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  height: 460px;
+  width: 340px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 10, 0.25);
+}
+.testimonial-section .testimonial-container .inner .t-image ul li {
+  height: 460px;
+  width: 340px;
+}
+.testimonial-section .testimonial-container .inner .t-image ul li img {
+  height: 460px;
+  width: 340px;
+}
+.testimonial-section .testimonial-container .inner .t-content {
+  width: 500px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+}
+.testimonial-section .testimonial-container .inner .t-content ul {
+  position: absolute;
+  overflow: hidden;
+  width: 500px;
+  height: 400px;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li {
+  width: 500px;
+  height: 400px;
+  color: #2e293c;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  opacity: 0;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li:nth-child(1):after {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 310px;
+  background: #2e293c;
+  opacity: 0.3;
+  left: 0;
+  top: 206px;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li:nth-child(2):after {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 148px;
+  background: #2e293c;
+  opacity: 0.3;
+  left: 54px;
+  top: 126px;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li:nth-child(3):after {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 280px;
+  background: #2e293c;
+  opacity: 0.3;
+  left: 144px;
+  top: 166px;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li .content-inner {
+  width: 500px;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li .content-inner .quote {
+  font-size: 26px;
+  letter-spacing: 0.88px;
+  line-height: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li .content-inner .name {
+  font-size: 18px;
+  letter-spacing: 0.88px;
+  line-height: 28px;
+  color: #a09da6;
+  font-weight: 600;
+}
+.testimonial-section .testimonial-container .inner .t-content ul li .content-inner .title {
+  font-size: 18px;
+  letter-spacing: 0.88px;
+  line-height: 28px;
+  color: #a09da6;
+}
